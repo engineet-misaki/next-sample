@@ -28,7 +28,7 @@ type JsonplaceholderUsers = {
   company: UsersCompany;
 };
 
-export default function List() {
+export default function SampleList() {
   const [data, setData] = useState<JsonplaceholderUsers[]>([]);
 
   useEffect(() => {
@@ -40,7 +40,59 @@ export default function List() {
 
   return (
     <div>
-      <p>test lists</p>
+      <p>一覧画面 サンプル</p>
+      <div className="flex flex-wrap border p-5">
+        <div className="my-6 w-full">
+          <div className="leading-loose">
+            <form
+              onSubmit={() => {
+                return;
+              }}
+              className="rounded bg-white p-10 shadow-xl"
+            >
+              <div className="flex gap-3">
+                <div className="">
+                  <label className="block text-sm text-gray-600" htmlFor="name">
+                    名前
+                  </label>
+                  <input
+                    className="w-full rounded bg-gray-200 px-5 py-1 text-gray-700"
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    aria-label="Name"
+                  />
+                </div>
+                <div className="">
+                  <label
+                    className="block text-sm text-gray-600"
+                    htmlFor="email"
+                  >
+                    Email
+                  </label>
+                  <input
+                    className="w-full rounded  bg-gray-200 px-5 py-1 text-gray-700"
+                    id="email"
+                    name="email"
+                    type="text"
+                    placeholder="Your Email"
+                    aria-label="Email"
+                  />
+                </div>
+              </div>
+              <div className="mt-6 text-right">
+                <button
+                  className="rounded bg-gray-900 px-4 py-1 font-light tracking-wider text-white"
+                  type="button"
+                >
+                  検索
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       <div className="overflow-auto bg-white">
         <table className="min-w-full bg-white">
           <thead className="bg-gray-800 text-white">
@@ -64,7 +116,7 @@ export default function List() {
                   <td className="w-1/3 px-4 py-3 text-left">{el.id}</td>
                   <td className="px-4 py-3 text-left">
                     <a
-                      className="hover:text-blue-500"
+                      className="text-blue-500 underline"
                       href={`/sample/list/${encodeURIComponent(el.id)}`}
                     >
                       {el.username}
